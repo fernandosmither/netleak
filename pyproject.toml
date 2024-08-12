@@ -10,6 +10,8 @@ python = "^3.9,<3.10"
 signal-protocol = "^0.2.3"
 numpy = "^2.0.1"
 nltk = "^3.8.2"
+matplotlib = "^3.9.1.post1"
+pandas = "^2.2.2"
 
 
 [build-system]
