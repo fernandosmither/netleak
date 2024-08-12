@@ -80,12 +80,7 @@ class SignalClient:
         recipient_address = address.ProtocolAddress(
             recipient_id, 1
         )  # Using device ID 1
-        # logging.debug(f"Processing prekey bundle for {recipient_id}")
-        try:
-            session.process_prekey_bundle(recipient_address, self.store, prekey_bundle)
-        except Exception as e:
-            # logging.error(f"Error processing prekey bundle for {recipient_id}: {e}")
-            pass
+        session.process_prekey_bundle(recipient_address, self.store, prekey_bundle)
 
     def encrypt_message(self, recipient_id, message):
         recipient_address = address.ProtocolAddress(
