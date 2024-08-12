@@ -37,7 +37,7 @@ class MultiUserSimulation:
     def setup_users(self):
         for i in range(self.num_users):
             user_id = f"user_{i}"
-            client = SignalClient(user_id)
+            client = SignalClient(user_id, pre_key_pool_size=self.num_users)
             self.clients[user_id] = client
             self.server.register_user(client.user_id, client.pre_key_bundles)
 
@@ -51,8 +51,6 @@ class MultiUserSimulation:
                 potential_contacts, min(num_contacts, len(potential_contacts))
             )
             for contact in contacts:
-                client.add_new_prekey_bundle()
-                client.add_new_prekey_bundle()
                 self.contact_lists[user_id].add(contact)
                 self.contact_lists[contact].add(user_id)
 
